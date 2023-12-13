@@ -4,8 +4,14 @@ services:
     build: ./fluentd
     volumes:
       - ./fluentd/conf:/fluentd/etc
-    links:
-      - "elasticsearch"
+    networks:
+      - efk-network
     ports:
       - "24224:24224"
       - "24224:24224/udp"
+networks:
+  efk-network:
+    external: true
+    name: efk-network
+
+
