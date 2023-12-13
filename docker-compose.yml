@@ -1,7 +1,12 @@
 version: "3"
 services:
   fluentd:
-    build: ./fluentd
+    image: fluend-labs:v1.0.0
+    container_name: fluentd-labs
+    build:
+      dockerfile: ./fluentd/Dockerfile
+      tags:
+        - "fluend-labs:v1.0.0"
     volumes:
       - ./fluentd/conf:/fluentd/etc
     networks:
@@ -13,5 +18,3 @@ networks:
   efk-network:
     external: true
     name: efk-network
-
-
