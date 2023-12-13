@@ -1,6 +1,9 @@
 # fluentd
 fluentd
 
+Sebelumnya buat dahulu network di docker dengan perintah :
+
+docker network create efk-network --attachable
 
 Referensi :
 
