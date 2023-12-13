@@ -12,13 +12,8 @@ RUN apk add --no-cache --update --virtual .build-deps \
  && apk del .build-deps \
  && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem
 
-COPY fluent.conf /fluentd/etc/
+COPY /fluentd/conf/fluent.conf /fluentd/etc/
 COPY entrypoint.sh /bin/
+RUN chmod +x /bin/entrypoint.sh
 
 USER fluent
-
-
-#FROM fluent/fluentd:v1.12.0-debian-1.0
-#USER root
-#RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "5.2.2"]
-#USER fluent
